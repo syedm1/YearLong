@@ -38,7 +38,6 @@ def getLastLine(filename, maxLineLength):
     return fp.readlines()[-1]
 
 line = getLastLine(file_name,80)
-print(line)
 decoded_line=line.decode('utf-8')
 goal_found = decoded_line
 goal_ot_name = otPattern.findall(goal_found)
@@ -56,6 +55,7 @@ goal_data = []
 problem_json = []
 goal_condition =[]
 goal_final_data = []
+final_problem_json=[]
 
 for ot in init_ot_name:
     data_object ={}
@@ -101,7 +101,7 @@ for ah in init_ah_name:
 
 init_data_object = {}
 init_data_object["init"] = init_data
-problem_json.append(init_data_object)
+final_problem_json.append(init_data_object)
 
 
 
@@ -163,7 +163,13 @@ for ah in goal_ah_name:
 goal_data_object ={}
 goal_data_object["goal"] = goal_data
 goal_data_object["goal-condition"] = goal_condition
-problem_json.append(goal_data_object)
+
+predicate_data_object = {}
+predicate_data_object["predicates"] = problem_json
+final_problem_json.append(predicate_data_object)
+
+
+final_problem_json.append(goal_data_object)
 
 
 
@@ -209,7 +215,7 @@ for ah in ah_name:
     problem_json.append(data_object)
 
 
-pprint(problem_json)
+pprint(final_problem_json)
 
 
 
