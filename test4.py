@@ -1,4 +1,5 @@
 import re
+import json
 from pprint import pprint
 
 otPattern = re.compile(r'on-table\s\w')
@@ -38,6 +39,7 @@ def getLastLine(filename, maxLineLength):
     return fp.readlines()[-1]
 
 line = getLastLine(file_name,80)
+
 decoded_line=line.decode('utf-8')
 goal_found = decoded_line
 goal_ot_name = otPattern.findall(goal_found)
@@ -46,16 +48,14 @@ goal_on_name = onPattern.findall(goal_found)
 goal_af_name = afPattern.findall(goal_found)
 goal_ah_name = ahPattern.findall(goal_found)
 goal_and_name = andPattern.findall(goal_found)
-
-
-
 f.close()
+
 init_data = []
 goal_data = []
 problem_json = []
 goal_condition =[]
 goal_final_data = []
-final_problem_json=[]
+final_problem_json= []
 
 for ot in init_ot_name:
     data_object ={}
@@ -216,6 +216,11 @@ for ah in ah_name:
 
 
 pprint(final_problem_json)
+
+with open('pddlproblem.json', 'w') as outfile:
+    json.dump(final_problem_json, outfile)
+
+print("PDDL to JSON successful")
 
 
 
