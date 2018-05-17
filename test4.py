@@ -52,7 +52,6 @@ f.close()
 
 init_data = []
 goal_data = []
-problem_json = []
 goal_condition =[]
 goal_final_data = []
 final_problem_json= []
@@ -60,17 +59,21 @@ final_problem_json= []
 for ot in init_ot_name:
     data_object ={}
     data_object["name"] = ot.split()[0]
-    data_object["objectNames"] = ot.split()[1]
+    data_object["objectNames"] =[]
+    data_object["objectNames"].append(ot.split()[1])
     init_data.append(data_object)
 for cl in init_cl_name:
     data_object = {}
     data_object["name"] = cl.split()[0]
-    data_object["objectNames"] = cl.split()[1]
+    data_object["objectNames"] =[]
+    data_object["objectNames"].append(cl.split()[1])
     init_data.append(data_object)
 for on in init_on_name:
     data_object = {}
     data_object["name"] = on.split()[0]
-    data_object["objectNames"] = on.split()[1]+ ','+on.split()[2]
+    data_object["objectNames"] =[]
+    data_object["objectNames"].append(on.split()[1])
+    data_object["objectNames"].append(on.split()[2])
 
     init_data.append(data_object)
 for af in init_af_name:
@@ -78,56 +81,61 @@ for af in init_af_name:
     data_object["name"] = af.split()[0]
     if len(af) > 8:
         if af.split()[1] is None:
-            data_object["objectNames"] = "No objects"
+            data_object["objectNames"] = ["No objects"]
         else:
-            data_object["objectNames"] = af.split()[1]
+            data_object["objectNames"] = []
+            data_object["objectNames"].append(af.split()[1])
 
     else:
-        data_object["objectNames"] = "No objects"
+        data_object["objectNames"] = ["No objects"]
     init_data.append(data_object)
 for ah in init_ah_name:
     data_object = {}
     data_object["name"] = ah.split()[0]
     if len(ah) > 8:
         if ah.split()[1] is None:
-            data_object["objectNames"] = "No objects"
+            data_object["objectNames"] = ["No objects"]
 
         else:
-            data_object["objectNames"] = ah.split()[1]
+            data_object["objectNames"] = []
+            data_object["objectNames"].append(ah.split()[1])
     else:
-        data_object["objectNames"] = "No objects"
+        data_object["objectNames"] = ["No objects"]
     init_data.append(data_object)
 
 
-init_data_object = {}
-init_data_object["init"] = init_data
-final_problem_json.append(init_data_object)
+
 
 
 
 for val in goal_and_name:
     data_object ={}
 
-    data_object["condition"] = val.split()[0]
+    data_object["objectNames"] = []
+    data_object["objectNames"].append(val.split()[0])
 
     goal_condition.append(data_object)
 for ot in goal_ot_name:
     data_object ={}
 
     data_object["name"] = ot.split()[0]
-    data_object["objectNames"] = ot.split()[1]
+    data_object["objectNames"] = []
+    data_object["objectNames"].append(ot.split()[1])
     goal_data.append(data_object)
 for cl in goal_cl_name:
     data_object = {}
 
     data_object["name"] = cl.split()[0]
-    data_object["objectNames"] = cl.split()[1]
+    data_object["objectNames"] = []
+    data_object["objectNames"].append(cl.split()[1])
     goal_data.append(data_object)
 for on in goal_on_name:
     data_object = {}
 
     data_object["name"] = on.split()[0]
-    data_object["objectNames"] = on.split()[1]+ ','+on.split()[2]
+    data_object["objectNames"] = []
+    data_object["objectNames"].append(on.split()[1])
+    data_object["objectNames"].append(on.split()[2])
 
     goal_data.append(data_object)
 for af in goal_af_name:
@@ -137,12 +145,13 @@ for af in goal_af_name:
 
     if len(af) > 8:
         if af.split()[1] is None:
-            data_object["objectNames"] = "No objects"
+            data_object["objectNames"] = ["No objects"]
         else:
-            data_object["objectNames"] = af.split()[1]
+            data_object["objectNames"] = []
+            data_object["objectNames"].append(af.split()[1])
 
     else:
-        data_object["objectNames"] = "No objects"
+        data_object["objectNames"] = ["No objects"]
     goal_data.append(data_object)
 for ah in goal_ah_name:
     data_object = {}
@@ -150,12 +159,13 @@ for ah in goal_ah_name:
     data_object["name"] = ah.split()[0]
     if len(ah) > 8:
         if ah.split()[1] is None:
-            data_object["objectNames"] = "No objects"
+            data_object["objectNames"] = ["No objects"]
 
         else:
-            data_object["objectNames"] = ah.split()[1]
+            data_object["objectNames"] = []
+            data_object["objectNames"].append(ah.split()[1])
     else:
-        data_object["objectNames"] = "No objects"
+        data_object["objectNames"] = ["No objects"]
     goal_data.append(data_object)
 
 
@@ -164,57 +174,64 @@ goal_data_object ={}
 goal_data_object["goal"] = goal_data
 goal_data_object["goal-condition"] = goal_condition
 
-predicate_data_object = {}
-predicate_data_object["predicates"] = problem_json
-final_problem_json.append(predicate_data_object)
 
 
-final_problem_json.append(goal_data_object)
+
+
 
 
 
 for ot in ot_name:
     data_object ={}
     data_object["name"] = ot.split()[0]
-    data_object["objectNames"] = ot.split()[1]
-    problem_json.append(data_object)
+    data_object["objectNames"] = []
+    data_object["objectNames"].append(ot.split()[1])
+    init_data.append(data_object)
 for cl in cl_name:
     data_object = {}
     data_object["name"] = cl.split()[0]
-    data_object["objectNames"] = cl.split()[1]
-    problem_json.append(data_object)
+    data_object["objectNames"] = []
+    data_object["objectNames"].append(cl.split()[1])
+    init_data.append(data_object)
 for on in on_name:
     data_object = {}
     data_object["name"] = on.split()[0]
-    data_object["objectNames"] = on.split()[1]+ ','+on.split()[2]
+    data_object["objectNames"] = []
+    data_object["objectNames"].append(on.split()[1])
+    data_object["objectNames"].append(on.split()[2])
 
-    problem_json.append(data_object)
+    init_data.append(data_object)
 for af in af_name:
     data_object = {}
     data_object["name"] = af.split()[0]
     if len(af) > 8:
         if af.split()[1] is None:
-            data_object["objectNames"] = "No objects"
+            data_object["objectNames"] = ["No objects"]
         else:
-            data_object["objectNames"] = af.split()[1]
+            data_object["objectNames"] = []
+            data_object["objectNames"].append(af.split()[1])
 
     else:
-        data_object["objectNames"] = "No objects"
-    problem_json.append(data_object)
+        data_object["objectNames"] = ["No objects"]
+    init_data.append(data_object)
 for ah in ah_name:
     data_object = {}
     data_object["name"] = ah.split()[0]
     if len(ah) > 8:
         if ah.split()[1] is None:
-            data_object["objectNames"] = "No objects"
+            data_object["objectNames"] = ["No objects"]
 
         else:
-            data_object["objectNames"] = ah.split()[1]
+            data_object["objectNames"] =[]
+            data_object["objectNames"].append(ah.split()[1])
     else:
-        data_object["objectNames"] = "No objects"
-    problem_json.append(data_object)
+        data_object["objectNames"] = ["No objects"]
+    init_data.append(data_object)
 
-
+init_data_object = {}
+init_data_object["init"] = init_data
+final_problem_json.append(init_data_object)
+final_problem_json.append(goal_data_object)
 pprint(final_problem_json)
 
 with open('pddlproblem.json', 'w') as outfile:
