@@ -1,0 +1,132 @@
+[
+  {
+    "init": [
+      {
+        "name": "on-table",
+        "objectNames": [
+          "a"
+        ]
+      },
+      {
+        "name": "clear",
+        "objectNames": [
+          "a"
+        ]
+      },
+      {
+        "name": "on-table",
+        "objectNames": [
+          "a"
+        ]
+      },
+      {
+        "name": "on-table",
+        "objectNames": [
+          "b"
+        ]
+      },
+      {
+        "name": "on-table",
+        "objectNames": [
+          "e"
+        ]
+      },
+      {
+        "name": "on-table",
+        "objectNames": [
+          "c"
+        ]
+      },
+      {
+        "name": "clear",
+        "objectNames": [
+          "a"
+        ]
+      },
+      {
+        "name": "clear",
+        "objectNames": [
+          "b"
+        ]
+      },
+      {
+        "name": "clear",
+        "objectNames": [
+          "e"
+        ]
+      },
+      {
+        "name": "clear",
+        "objectNames": [
+          "d"
+        ]
+      },
+      {
+        "name": "on",
+        "objectNames": [
+          "d",
+          "c"
+        ]
+      },
+      {
+        "name": "on",
+        "objectNames": [
+          "b",
+          "d"
+        ]
+      },
+      {
+        "name": "on",
+        "objectNames": [
+          "c",
+          "a"
+        ]
+      },
+      {
+        "name": "on",
+        "objectNames": [
+          "e",
+          "c"
+        ]
+      },
+      {
+        "name": "arm-free",
+        "objectNames": [
+          "No objects"
+        ]
+      }
+    ]
+  },
+  {
+    "goal": [
+      {
+        "name": "on",
+        "objectNames": [
+          "b",
+          "d"
+        ]
+      },
+      {
+        "name": "on",
+        "objectNames": [
+          "c",
+          "a"
+        ]
+      },
+      {
+        "name": "on",
+        "objectNames": [
+          "e",
+          "c"
+        ]
+      }
+    ],
+    "goal-condition": [
+      {
+        "objectNames": [
+          "and"
+        ]
+      }
+    ]
+  }
+]
